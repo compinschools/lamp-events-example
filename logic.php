@@ -15,19 +15,20 @@
             $vid = $_REQUEST['vid'];
             $oid = $_REQUEST['oid']; 
         
-            echo $name;
+         
         
             $insert = "INSERT INTO events(event_name, event_date, event_desc, venue_id, organiser_id) 
             VALUES('$name', '$date', '$desc', '$vid', '$oid')";
         
         if ($conn->query($insert) === TRUE) {
             echo "New record created successfully";
+            header("Location: index.php");
+            exit();
           } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
           }
           
-            //header("Location: index.php");
-            //exit();
+            
 
         }
 
